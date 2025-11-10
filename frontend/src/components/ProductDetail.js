@@ -9,7 +9,7 @@ function ProductDetail() {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:5000/api/products/${id}`)
+            .get(`http://54.146.193.153:5000/api/products/${id}`)
             .then((response) => {
                 setProduct(response.data);
                 setLoading(false);

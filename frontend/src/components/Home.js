@@ -8,7 +8,7 @@ function Home() {
 
     useEffect(() => {
         axios
-            .get('http://localhost:5000/api/products')
+            .get('http://54.146.193.153:5000/api/products')
             .then((response) => {
                 setProducts(response.data);
                 setLoading(false);
