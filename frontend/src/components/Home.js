@@ -115,7 +115,7 @@ function Home({ addToCart, addToWishlist, isInWishlist }) {
                                 <FaFire className="me-3" style={{ color: 'var(--danger)' }} />
                                 Trending Now
                             </h2>
-                            <p style={{ color: 'var(--text-secondary)' }}>Discover our most popular products</p>
+                            <p style={{ color: '#a0aec0' }}>Discover our most popular products</p>
                         </div>
                         <Link to="/shop" className="btn btn-outline d-none d-md-block">
                             View All <FaArrowRight className="ms-2" />
