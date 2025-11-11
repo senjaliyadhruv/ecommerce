@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { FaCheckCircle } from 'react-icons/fa';
 
-const API_URL = 'http://34.66.149.113:5000/api';
+const API_URL = 'http://3.87.125.10:5000/api';
 
 function Checkout({ cart, clearCart }) {
     const navigate = useNavigate();
