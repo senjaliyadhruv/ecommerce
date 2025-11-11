@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
 import { FaShoppingCart, FaHeart, FaStar, FaArrowLeft, FaCheck, FaTruck } from 'react-icons/fa';
 
-const API_URL = 'http://54.146.193.153:5000/api';
+const API_URL = 'http://34.66.149.113:5000/api';
 
 function ProductDetail({ addToCart, addToWishlist, isInWishlist }) {
     const { id } = useParams();
@@ -68,7 +68,7 @@ function ProductDetail({ addToCart, addToWishlist, isInWishlist }) {
     return (
         <div className="product-detail-page">
             {toast && <div className="toast">{toast}</div>}
-            
+
             <div className="container py-5">
                 <Link to="/shop" className="btn btn-outline mb-4">
                     <FaArrowLeft className="me-2" /> Back to Shop
@@ -230,7 +230,7 @@ function ProductDetail({ addToCart, addToWishlist, isInWishlist }) {
                         {activeTab === 'reviews' && (
                             <div>
                                 <h4 className="fw-bold mb-4">Customer Reviews</h4>
-                                
+
                                 {/* Review Form */}
                                 <div className="mb-5 p-4" style={{ background: 'var(--dark-bg)', borderRadius: '12px' }}>
                                     <h5 className="mb-3">Write a Review</h5>
@@ -241,7 +241,7 @@ function ProductDetail({ addToCart, addToWishlist, isInWishlist }) {
                                                 className="form-control"
                                                 placeholder="Your Name"
                                                 value={reviewForm.username}
-                                                onChange={(e) => setReviewForm({...reviewForm, username: e.target.value})}
+                                                onChange={(e) => setReviewForm({ ...reviewForm, username: e.target.value })}
                                                 required
                                                 style={{
                                                     background: 'var(--dark-card)',
@@ -254,14 +254,14 @@ function ProductDetail({ addToCart, addToWishlist, isInWishlist }) {
                                             <select
                                                 className="form-select"
                                                 value={reviewForm.rating}
-                                                onChange={(e) => setReviewForm({...reviewForm, rating: parseInt(e.target.value)})}
+                                                onChange={(e) => setReviewForm({ ...reviewForm, rating: parseInt(e.target.value) })}
                                                 style={{
                                                     background: 'var(--dark-card)',
                                                     border: '1px solid rgba(255, 255, 255, 0.1)',
                                                     color: 'var(--text-primary)'
                                                 }}
                                             >
-                                                {[5,4,3,2,1].map(n => (
+                                                {[5, 4, 3, 2, 1].map(n => (
                                                     <option key={n} value={n}>{n} Stars</option>
                                                 ))}
                                             </select>
@@ -272,7 +272,7 @@ function ProductDetail({ addToCart, addToWishlist, isInWishlist }) {
                                                 rows="4"
                                                 placeholder="Your Review"
                                                 value={reviewForm.comment}
-                                                onChange={(e) => setReviewForm({...reviewForm, comment: e.target.value})}
+                                                onChange={(e) => setReviewForm({ ...reviewForm, comment: e.target.value })}
                                                 required
                                                 style={{
                                                     background: 'var(--dark-card)',

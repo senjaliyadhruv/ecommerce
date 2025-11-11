@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart, FaHeart, FaStar, FaSearch, FaFilter, FaTh, FaThList } from 'react-icons/fa';
 
-const API_URL = 'http://54.146.193.153:5000/api';
+const API_URL = 'http://34.66.149.113:5000/api';
 
 function Shop({ addToCart, addToWishlist, isInWishlist }) {
     const [products, setProducts] = useState([]);
