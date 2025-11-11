@@ -85,18 +85,20 @@ function Footer() {
                                 'Terms & Conditions'
                             ].map((item, idx) => (
                                 <li key={idx} className="mb-2">
-                                    <a
-                                        href="#"
+                                    <span
+                                        role="button"
+                                        tabIndex={0}
                                         style={{
                                             color: 'var(--text-secondary)',
                                             textDecoration: 'none',
-                                            transition: 'color 0.3s ease'
+                                            transition: 'color 0.3s ease',
+                                            cursor: 'pointer'
                                         }}
                                         onMouseEnter={(e) => e.target.style.color = 'var(--primary)'}
                                         onMouseLeave={(e) => e.target.style.color = 'var(--text-secondary)'}
                                     >
                                         {item}
-                                    </a>
+                                    </span>
                                 </li>
                             ))}
                         </ul>
