@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart, FaHeart, FaStar, FaSearch, FaFilter, FaTh, FaThList } from 'react-icons/fa';
@@ -16,21 +16,16 @@ function Shop({ addToCart, addToWishlist, isInWishlist }) {
     const [viewMode, setViewMode] = useState('grid');
     const [toast, setToast] = useState(null);
 
-    useEffect(() => {
-        fetchCategories();
-        fetchProducts();
-    }, [selectedCategory, searchTerm, sortBy, priceRange]);
-
-    const fetchCategories = async () => {
+    const fetchCategories = useCallback(async () => {
         try {
             const response = await axios.get(`${API_URL}/categories`);
             setCategories(['all', ...response.data.map(c => c.category)]);
         } catch (error) {
             console.error('Error fetching categories:', error);
         }
-    };
+    }, []);
 
-    const fetchProducts = async () => {
+    const fetchProducts = useCallback(async () => {
         setLoading(true);
         try {
             const params = {
@@ -47,7 +42,15 @@ function Shop({ addToCart, addToWishlist, isInWishlist }) {
         } finally {
             setLoading(false);
         }
-    };
+    }, [selectedCategory, searchTerm, sortBy, priceRange]);
+
+    useEffect(() => {
+        fetchCategories();
+    }, [fetchCategories]);
+
+    useEffect(() => {
+        fetchProducts();
+    }, [fetchProducts]);
 
     const showToast = (message) => {
         setToast(message);

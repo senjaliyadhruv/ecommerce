@@ -1,5 +1,4 @@
-// ============= ProductDetail.js =============
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
 import { FaShoppingCart, FaHeart, FaStar, FaArrowLeft, FaCheck, FaTruck } from 'react-icons/fa';
@@ -15,11 +14,7 @@ function ProductDetail({ addToCart, addToWishlist, isInWishlist }) {
     const [toast, setToast] = useState(null);
     const [reviewForm, setReviewForm] = useState({ username: '', rating: 5, comment: '' });
 
-    useEffect(() => {
-        fetchProduct();
-    }, [id]);
-
-    const fetchProduct = async () => {
+    const fetchProduct = useCallback(async () => {
         try {
             const response = await axios.get(`${API_URL}/products/${id}`);
             setProduct(response.data);
@@ -28,7 +23,11 @@ function ProductDetail({ addToCart, addToWishlist, isInWishlist }) {
         } finally {
             setLoading(false);
         }
-    };
+    }, [id]);
+
+    useEffect(() => {
+        fetchProduct();
+    }, [fetchProduct]);
 
     const showToast = (message) => {
         setToast(message);
