@@ -1,0 +1,5 @@
+# Node Installation
+    
+    sudo yum update  # or sudo dnf update
+    curl -sL https://rpm.nodesource.com/setup_XX.x | sudo -E bash -  # Replace XX with the desired Node.js version (e.g., 20)
+    sudo yum install -y nodejs  # or sudo dnf install -y nodejs
