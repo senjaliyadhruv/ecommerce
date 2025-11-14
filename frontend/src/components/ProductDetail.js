@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
 import { FaShoppingCart, FaHeart, FaStar, FaArrowLeft, FaCheck, FaTruck } from 'react-icons/fa';
 
-const API_URL = 'http://3.87.125.10:5000/api';
+const API_URL = 'http://54.88.207.61:5000/api';
 
 function ProductDetail({ addToCart, addToWishlist, isInWishlist }) {
     const { id } = useParams();
