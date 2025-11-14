@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecommerce-backend
+  labels:
+    app: ecommerce
+    tier: backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ecommerce
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: ecommerce
+        tier: backend
+    spec:
+      containers:
+        - name: backend
+          # Replace this with your real backend image (built and pushed to a registry)
+          image: dhruv1204/backend:latest
+          # Change containerPort if your backend listens somewhere else
+          ports:
+            - containerPort: 5000
+              name: http
+          env:
+            # example env - adjust or add DB connection strings / secrets via Kubernetes Secret
+            - name: FLASK_ENV
+              value: "production"

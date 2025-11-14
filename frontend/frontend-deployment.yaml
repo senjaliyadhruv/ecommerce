@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecommerce-frontend
+  labels:
+    app: ecommerce
+    tier: frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ecommerce
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: ecommerce
+        tier: frontend
+    spec:
+      containers:
+        - name: frontend
+          # Replace this with your real frontend image (built and pushed to a registry)
+          image: dhruv1204/frontend:latest
+          # Change containerPort if your frontend serves on a different port (80 for nginx build)
+          ports:
+            - containerPort: 3000
+              name: http
+          env:
+            # In-cluster DNS for backend service (service name below)
+            - name: REACT_APP_API_URL
+              value: "http://ecommerce-backend:5000"
