@@ -16,7 +16,7 @@ function Navbar({ cartCount }) {
             <div className="container">
                 <Link className="navbar-brand d-flex align-items-center" to="/">
                     <FaStore className="me-2" style={{ fontSize: '28px', color: 'var(--primary)' }} />
-                    <span className="fw-bold fs-4 gradient-text">TechLux TechLux Dhruv senjaliya</span>
+                    <span className="fw-bold fs-4 gradient-text">TechLux TechLux Dhruv </span>
                 </Link>
 
                 <button
